@@ -11,4 +11,5 @@ function t {
 	echo
 }
 
+t tar
 t xz
