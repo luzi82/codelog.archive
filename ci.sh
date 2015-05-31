@@ -12,4 +12,5 @@ function t {
 }
 
 t tar
+t zlib
 t xz
