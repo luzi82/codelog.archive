@@ -10,6 +10,7 @@ cd tmp
 tar -cf t.tar data0.jpg roboto-1.2.zip data1.png
 gzip -c t.tar > t.tar.gz
 bzip2 -c t.tar > t.tar.bz2
+xz -c t.tar > t.tar.xz
 
 g++ -o c000 c000.cpp -larchive
 ./c000
@@ -41,3 +42,8 @@ echo c005 START
 g++ -o c005 c005.cpp -larchive
 ./c005
 echo c005 END
+
+echo c006 START
+g++ -o c006 c006.cpp -larchive
+./c006
+echo c006 END
