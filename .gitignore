@@ -1,5 +1,6 @@
 /.project
 /libarchive/tmp/
+/minizip/tmp/
 /tar/tmp/
 /xz/tmp/
 /zlib/tmp/
