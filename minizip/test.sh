@@ -23,4 +23,8 @@ g++ -o c001 c001.cpp unzip/unzip.c unzip/ioapi.c -lz -Iunzip
 ./c001
 diff c001.out QIxndqXX/square.png
 
+g++ -o c002 c002.cpp unzip/unzip.c unzip/ioapi.c -lz -Iunzip
+./c002
+diff c002.out HelloWorld.png
+
 echo ${0} OK
