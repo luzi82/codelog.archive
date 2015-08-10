@@ -15,3 +15,4 @@ t tar
 t zlib
 t xz
 t libarchive
+t minizip
