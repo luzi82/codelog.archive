@@ -7,7 +7,9 @@ cp -R res tmp
 
 cd tmp
 
-gzip --keep data0.jpg
+cp data0.jpg data0.jpg.ori
+gzip data0.jpg
+mv data0.jpg.ori data0.jpg
 
 gzip -d data0.jpg.gz -c > data0.jpg.gz.-
 
