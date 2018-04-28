@@ -28,7 +28,7 @@ int main()
 	if(ret!=UNZ_OK){clean();return 1;}
 	uocfDone = 1;
 	
-	buffer = (unsigned char*)malloc(fileInfo.uncompressed_size);
+	buffer = new unsigned char[fileInfo.uncompressed_size];
 	ret = unzReadCurrentFile(zfPtr, buffer, static_cast<unsigned>(fileInfo.uncompressed_size));
 	if(ret != (int)fileInfo.uncompressed_size){clean();return 1;}
 	

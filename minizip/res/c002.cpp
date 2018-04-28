@@ -47,7 +47,7 @@ int main()
 	if(ret!=UNZ_OK){clean();return 1;}
 	uocfDone = 1;
 	
-	buffer = (unsigned char*)malloc(fileInfo.uncompressed_size);
+	buffer = new unsigned char[fileInfo.uncompressed_size];
 	ret = unzReadCurrentFile(zfPtr, buffer, static_cast<unsigned>(fileInfo.uncompressed_size));
 	if(ret != (int)fileInfo.uncompressed_size){clean();return 1;}
 	
@@ -92,6 +92,7 @@ voidpf   zfd_open_file_func      (voidpf opaque, const char* filename, int mode)
 // fread_file_func
 uLong    zfd_read_file_func      (voidpf opaque, voidpf stream, void* buf, uLong size)
 {
+	printf("read %ld\n",size);
     uLong ret;
     ret = (uLong)fread(buf, 1, (size_t)size, (FILE *)stream);
     return ret;
@@ -124,6 +125,7 @@ int      zfd_testerror_file_func (voidpf opaque, voidpf stream)
 // ftell_file_func
 long     zfd_tell_file_func      (voidpf opaque, voidpf stream)
 {
+	printf("tell\n");
     long ret;
     ret = ftell((FILE *)stream);
     return ret;
@@ -132,6 +134,7 @@ long     zfd_tell_file_func      (voidpf opaque, voidpf stream)
 // fseek_file_func
 long     zfd_seek_file_func      (voidpf opaque, voidpf stream, uLong offset, int origin)
 {
+	printf("seek %ld %d\n",offset,origin);
 	//printf("zfd_seek_file_func offset=%d origin=%d\n",(int)offset,origin);
 	++zfd_seek_file_func_count;
 
